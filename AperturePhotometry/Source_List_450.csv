@@ -1,0 +1,2 @@
+Source,Center_X,Center_Y,Rstar,Rin,Rout,
+uant,268,243,0,15,20,Ignore Result. No Ext. Numbers added purely so code can work without breaking due to NAN
