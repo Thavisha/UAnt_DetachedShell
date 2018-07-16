@@ -7,6 +7,33 @@ import matplotlib.gridspec as gridspec
 #import pylatex
 import matplotlib.ticker as mtick
 
+"""
+################################################################################################################################
+                    ################## Plotting resulting Temperature, Density and Beta Profiles ########################
+#################################################################################################################################
+
+- script which plots the radially dependent temperature, density and beta profiles resulting from the SED mcmc fitting.
+- The profile x axes are presented in both projected radius (arcsec) and age of CSE (years). 
+- The age is calculated using the physical radius (cm - derived using projected radius and distance to source) and the terminal velocity (from De Beck et al., 2010) - (time = dist / vel) 
+
+###### Input files required ####################
+1) .csv file containing source names, distances, terminal velocities, Anchor points for uniform mass loss model - Source_Information.csv
+2) .csv table file containing the required radial points. x_interp.csv
+3) .csv file containing Temperature, dust mass column density and beta radial profiles for all sources from the above. eg: for CIT6 - cit6_temperature_radial_output.csv, cit6_density_radial_output.csv, cit6_beta_radial_output.csv.
+4) .csv file containing the dust mass column density radial profile derived assuming uniform mass loss derived from above: uniform_MassLoss_Model.csv - for over-plotting on the mcmc derived  dust mass column density to show the deviation of it from uniform mass loss. 
+	- This profile is scaled to a chosen point on the  mcmc derived  dust mass column density in order to plot it.   
+
+######### Output ####################
+1) .png of image of the temperature, density and beta profile for all the sources in the sample. 
+
+
+#### Note ######
+1) Xmin must be forced to zero in all lines due to a bug in matplotlib twin command where it adds some padding at the start only to the top x axis causing the axis ticks to be slightly shifted to the right when comapred to the bottom axis.  
+2) Limits (used in other lines) must be added to the fake line plotted in order to call the top axes again due to a requirment in the twin command.  
+
+
+"""
+
 font = {'family' : 'normal',
         'size'   : 14}
 
@@ -81,7 +108,7 @@ temperature_upper_limit = (max(Temperature) + Temperature_PlusUnc[np.argmax(Temp
 #ax1.set_ylim([0,250])
 #ax1.set_xlabel("Radius ($^{\prime\prime}$)")
 ax1.set_ylabel('T (K)')
-
+ax1.set_xlim(xmin=0) #starting x axis from zero
 
 ax2 = fig.add_subplot(gs[1], sharex=ax1) 
 ax2.errorbar(x_interp[nskip:], Density[nskip:], yerr=[Density_MinusUnc[nskip:], Density_PlusUnc[nskip:]], fmt='--^', color='indigo', capsize=2)
@@ -96,6 +123,7 @@ density_upper_limit = (max(Density) + Density_PlusUnc[np.argmax(Density)]) + 0.6
 #ax2.set_ylim([density_lower_limit, density_upper_limit])
 #ax2.set_ylim([-10, -4.5])
 ax2.set_ylabel('log($\\Sigma$ (g cm$^{-2}$))')
+ax2.set_xlim(xmin=0) #starting x axis from zero
 
 	
 ax3 = fig.add_subplot(gs[2], sharex=ax1) 
@@ -113,6 +141,7 @@ ax3.set_ylim([beta_lower_limit, beta_upper_limit])
 #ax3.set_ylim(ymin=1.2) #starting y axis from zero
 ax3.set_xlabel("Radius ($^{\prime\prime}$)")
 ax3.set_ylabel('$\\beta$')
+ax3.set_xlim(xmin=0) #starting x axis from zero
 
 #Additional x axis for time units
 ax4 = ax1.twiny()
@@ -127,6 +156,7 @@ ax4.xaxis.set_major_locator(MaxNLocator(nbins=nbins, prune='both')) #removing ma
 #ax4.set_xlabel("Time ($\\times 10^{11} $s)")
 #ax4.set_xlabel("Time ($10^{3}$yr)")
 ax4.set_xlabel("Time (yr)")
+ax4.set_xlim(xmin=0) #starting x axis from zero
 
 
 
