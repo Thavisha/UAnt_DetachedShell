@@ -1,0 +1,49 @@
+T=2800K log(g)=-0.20 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.20 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v3 
+T=2800K log(g)=-0.20 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.20 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=2.00 xi=2.5km/s v4 
+T=2800K log(g)=-0.20 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.20 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
+T=2800K log(g)=-0.20 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.20 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=2.00 xi=2.5km/s v4
+
+  
+T=2800K log(g)=-0.40 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4  ************
+T=2800K log(g)=-0.40 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v3 *************
+T=2800K log(g)=-0.40 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 ************ !!!!!!!!!!!!!! This one!!!!!
+T=2800K log(g)=-0.40 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=2.00 xi=2.5km/s v4  ************
+
+  
+T=2800K log(g)=-0.40 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.40 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
+T=2800K log(g)=-0.40 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.40 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=2.00 xi=2.5km/s v4 
+
+
+T=2800K log(g)=-0.45 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=2.00 xi=2.5km/s v4 
+T=2800K log(g)=-0.50 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v3 
+T=2800K log(g)=-0.50 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3  
+T=2800K log(g)=-0.50 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
+T=2800K log(g)=-0.50 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.50 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=2.00 xi=2.5km/s v4 
+T=2800K log(g)=-0.60 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.60 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v3 
+T=2800K log(g)=-0.60 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.60 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.60 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
+T=2800K log(g)=-0.60 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.65 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.65 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.70 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v3  
+T=2800K log(g)=-0.70 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v3 
+T=2800K log(g)=-0.70 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.40 xi=2.5km/s v3 
+T=2800K log(g)=-0.80 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.80 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4  
+T=2800K log(g)=-0.80 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.80 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
+T=2800K log(g)=-0.90 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.90 M/M(sol)=01.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4  
+T=2800K log(g)=-0.90 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.05 xi=2.5km/s v4 
+T=2800K log(g)=-0.90 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
+T=2800K log(g)=-0.95 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
+T=2800K log(g)=-1.00 M/M(sol)=02.0 Z/Z(sol)=1.00 C/O=1.10 xi=2.5km/s v4 
