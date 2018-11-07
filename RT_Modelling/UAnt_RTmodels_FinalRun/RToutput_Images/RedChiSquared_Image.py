@@ -3,10 +3,10 @@ from astropy.table import Table
 import warnings
 
 """
-Calculating the Chi squared values of each model rad.prof at each wavelenght with respect to the observed rad prof.
+Calculating the Reduced Chisquared values of each model rad.prof at each wavelenght with respect to the observed rad prof.
 
 When running this give an output filename in the command line to save the Chi Squared results in the file
-eg: python ChiSquared_Image.py > ChiSquaredValues_Image.csv #This prints the output to the filename ChiSquaredValues_Image.csv
+eg: python RedChiSquared_Image.py > RedChiSquaredValues_Image.csv #This prints the output to the filename RedChiSquaredValues_Image.csv
 
 """
 
@@ -232,128 +232,153 @@ stellar_FourShells_Uneven_850 = stellar_FourShells_Uneven_850 * 1000 #Converting
 
 
 
-##### ChiSqaured Generation #################
+##### Reduced ChiSqaured Generation #################
 
-print("Wavelength and Model Type, Chisqaured Result") #Prints a heading in the file given when running python. 
+print("Wavelength and Model Type, Reduced ChiSqaured Result") #Prints a heading in the file given when running python. 
 
 
-#Chisqaured for 70 micron 
+#Reduced RedChiSqaured for 70 micron 
 radial_limit_obs_70 = x_70 < 100
 radial_limit_Mod_70 = x_ContEm_Only_70 < 100
 
 #Model Outer Shell (M2010) + Cont Emission - Shell size from Maercker+2010
-OuterShell_M2010_70_ChiSq = np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_OuterShell_M2010_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 )
-print("outer_M2010_ChiSq_70,", OuterShell_M2010_70_ChiSq) 
+OuterShell_M2010_70_RedChiSq = ( ( np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_OuterShell_M2010_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 ) ) 
+                                                                                                                                                / ( np.shape(stellar_70[radial_limit_obs_70])[0] ) )
+#print(np.shape(stellar_70[radial_limit_obs_70]))
+print("outer_M2010_RedChiSq_70,", OuterShell_M2010_70_RedChiSq) 
 
 #Model Outer Shell (K2010) + Cont Emission - Shell size from Kerschbaum+2010
-OuterShell_K2010_70_ChiSq = np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_OuterShell_K2010_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 )
-print("outer_K2010_ChiSq_70,", OuterShell_K2010_70_ChiSq) 
+OuterShell_K2010_70_RedChiSq =( ( np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_OuterShell_K2010_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 ) )
+                                                                                                                                    / ( np.shape(stellar_70[radial_limit_obs_70])[0] ) )
+print("outer_K2010_RedChiSq_70,", OuterShell_K2010_70_RedChiSq) 
 
 #Model Inner Shell + Cont Emission
-InnerShell_70_ChiSq = np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_InnerShell_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 )
-print("Inner_ChiSq_70,", InnerShell_70_ChiSq) 
+InnerShell_70_RedChiSq = ( ( np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_InnerShell_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 ) )
+                                                                                                                                / ( np.shape(stellar_70[radial_limit_obs_70])[0] ) )
+print("Inner_RedChiSq_70,", InnerShell_70_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Evenly spread between four shells
-FourShells_Even_70_ChiSq = np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_FourShells_Even_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 )
-print("FourShell_Even_ChiSq_70,", FourShells_Even_70_ChiSq) 
+FourShells_Even_70_RedChiSq =( ( np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_FourShells_Even_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 ) )
+                                                                                                                                        / ( np.shape(stellar_70[radial_limit_obs_70])[0] ) )
+print("FourShell_Even_RedChiSq_70,", FourShells_Even_70_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Unevenly spread between four shells
-FourShells_Uneven_70_ChiSq = np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_FourShells_Uneven_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 )
-print("FourShell_Uneven_ChiSq_70,", FourShells_Uneven_70_ChiSq) 
+FourShells_Uneven_70_RedChiSq = ( ( np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_FourShells_Uneven_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 ) )
+                                                                                                                                    / ( np.shape(stellar_70[radial_limit_obs_70])[0] ) )
+print("FourShell_Uneven_RedChiSq_70,", FourShells_Uneven_70_RedChiSq) 
 
 #Model No Shells - Only Cont emission
-ContEm_Only_70_ChiSq = np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_ContEm_Only_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 )
-print("ContEm_Only_ChiSq_70,", ContEm_Only_70_ChiSq ) 
+ContEm_Only_70_RedChiSq = ( ( np.sum ( ( (stellar_70[radial_limit_obs_70] - stellar_ContEm_Only_70[radial_limit_Mod_70]) / stellar_unc_70[radial_limit_obs_70]) **2 ) )
+                                                                                                                                                    / ( np.shape(stellar_70[radial_limit_obs_70])[0] ) )
+print("ContEm_Only_RedChiSq_70,", ContEm_Only_70_RedChiSq ) 
 
 
 
-#Chisqaured for 160 micron 
+#Reduced RedChiSqaured for 160 micron 
 radial_limit_obs_160 = x_160 < 100
 radial_limit_Mod_160 = x_ContEm_Only_160 < 100
 
 #Model Outer Shell (M2010) + Cont Emission - Shell size from Maercker+2010
-OuterShell_M2010_160_ChiSq = np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_OuterShell_M2010_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 )
-print("outer_M2010_ChiSq_160,", OuterShell_M2010_160_ChiSq) 
+OuterShell_M2010_160_RedChiSq = ( ( np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_OuterShell_M2010_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 ) )
+                                                                                                                            / ( np.shape(stellar_160[radial_limit_obs_160])[0] ) )
+print("outer_M2010_RedChiSq_160,", OuterShell_M2010_160_RedChiSq) 
 
 #Model Outer Shell (K2010) + Cont Emission - Shell size from Kerschbaum+2010
-OuterShell_K2010_160_ChiSq = np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_OuterShell_K2010_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 )
-print("outer_K2010_ChiSq_160,", OuterShell_K2010_160_ChiSq) 
+OuterShell_K2010_160_RedChiSq = ( ( np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_OuterShell_K2010_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 ) )
+                                                                                                                                / ( np.shape(stellar_160[radial_limit_obs_160])[0] ) )
+print("outer_K2010_RedChiSq_160,", OuterShell_K2010_160_RedChiSq) 
 
 #Model Inner Shell + Cont Emission
-InnerShell_160_ChiSq = np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_InnerShell_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 )
-print("Inner_ChiSq_160,", InnerShell_160_ChiSq) 
+InnerShell_160_RedChiSq = ( ( np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_InnerShell_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 ) )
+                                                                                                                                         / ( np.shape(stellar_160[radial_limit_obs_160])[0] ) )
+print("Inner_RedChiSq_160,", InnerShell_160_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Evenly spread between four shells
-FourShells_Even_160_ChiSq = np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_FourShells_Even_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 )
-print("FourShell_Even_ChiSq_160,", FourShells_Even_160_ChiSq) 
+FourShells_Even_160_RedChiSq = ( ( np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_FourShells_Even_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 ) )
+                                                                                                                                             / ( np.shape(stellar_160[radial_limit_obs_160])[0] ) )
+print("FourShell_Even_RedChiSq_160,", FourShells_Even_160_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Unevenly spread between four shells
-FourShells_Uneven_160_ChiSq = np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_FourShells_Uneven_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 )
-print("FourShell_Uneven_ChiSq_160,", FourShells_Uneven_160_ChiSq) 
+FourShells_Uneven_160_RedChiSq = ( ( np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_FourShells_Uneven_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 ) )
+                                                                                                                                      / ( np.shape(stellar_160[radial_limit_obs_160])[0] ) )
+print("FourShell_Uneven_RedChiSq_160,", FourShells_Uneven_160_RedChiSq) 
 
 #Model No Shells - Only Cont emission
-ContEm_Only_160_ChiSq = np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_ContEm_Only_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 )
-print("Only_ChiSq_160,", ContEm_Only_160_ChiSq ) 
+ContEm_Only_160_RedChiSq = ( ( np.sum ( ( (stellar_160[radial_limit_obs_160] - stellar_ContEm_Only_160[radial_limit_Mod_160]) / stellar_unc_160[radial_limit_obs_160]) **2 ) )
+                                                                                                                             / ( np.shape(stellar_160[radial_limit_obs_160])[0] ) )
+print("Only_RedChiSq_160,", ContEm_Only_160_RedChiSq ) 
 
 
 
-#Chisqaured for 450 micron 
+#Reduced RedChiSqaured for 450 micron 
 radial_limit_obs_450 = x_450 < 60
 radial_limit_Mod_450 = x_ContEm_Only_450 < 60
 
 #Model Outer Shell (M2010) + Cont Emission - Shell size from Maercker+2010
-OuterShell_M2010_450_ChiSq = np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_OuterShell_M2010_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 )
-print("outer_M2010_ChiSq_450,", OuterShell_M2010_450_ChiSq) 
+OuterShell_M2010_450_RedChiSq = ( ( np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_OuterShell_M2010_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 ) )
+                                                                                                                                                / ( np.shape(stellar_450[radial_limit_obs_450])[0] ) )
+print("outer_M2010_RedChiSq_450,", OuterShell_M2010_450_RedChiSq) 
 
 #Model Outer Shell (K2010) + Cont Emission - Shell size from Kerschbaum+2010
-OuterShell_K2010_450_ChiSq = np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_OuterShell_K2010_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 )
-print("outer_K2010_ChiSq_450,", OuterShell_K2010_450_ChiSq) 
+OuterShell_K2010_450_RedChiSq = ( ( np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_OuterShell_K2010_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 ) )
+                                                                                                                    / ( np.shape(stellar_450[radial_limit_obs_450])[0] ) )                                     
+print("outer_K2010_RedChiSq_450,", OuterShell_K2010_450_RedChiSq) 
 
 #Model Inner Shell + Cont Emission
-InnerShell_450_ChiSq = np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_InnerShell_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 )
-print("Inner_ChiSq_450,", InnerShell_450_ChiSq) 
+InnerShell_450_RedChiSq = ( ( np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_InnerShell_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 ) )
+                                                                                                                / ( np.shape(stellar_450[radial_limit_obs_450])[0] ) )
+print("Inner_RedChiSq_450,", InnerShell_450_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Evenly spread between four shells
-FourShells_Even_450_ChiSq = np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_FourShells_Even_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 )
-print("FourShell_Even_ChiSq_450,", FourShells_Even_450_ChiSq) 
+FourShells_Even_450_RedChiSq = ( ( np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_FourShells_Even_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 ) )
+                                                                                                                            / ( np.shape(stellar_450[radial_limit_obs_450])[0] ) )
+print("FourShell_Even_RedChiSq_450,", FourShells_Even_450_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Unevenly spread between four shells
-FourShells_Uneven_450_ChiSq = np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_FourShells_Uneven_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 )
-print("FourShell_Uneven_ChiSq_450,", FourShells_Uneven_450_ChiSq) 
+FourShells_Uneven_450_RedChiSq = ( ( np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_FourShells_Uneven_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 ) )
+                                                                                                                                                     / ( np.shape(stellar_450[radial_limit_obs_450])[0] ) ) 
+print("FourShell_Uneven_RedChiSq_450,", FourShells_Uneven_450_RedChiSq) 
 
 #Model No Shells - Only Cont emission
-ContEm_Only_450_ChiSq = np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_ContEm_Only_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 )
-print("ContEm_Only_ChiSq_450,", ContEm_Only_450_ChiSq ) 
+ContEm_Only_450_RedChiSq = ( ( np.sum ( ( (stellar_450[radial_limit_obs_450] - stellar_ContEm_Only_450[radial_limit_Mod_450]) / stellar_unc_450[radial_limit_obs_450]) **2 ) )
+                                                                                                                / ( np.shape(stellar_450[radial_limit_obs_450])[0] ) )
+print("ContEm_Only_RedChiSq_450,", ContEm_Only_450_RedChiSq ) 
 
 
 
-#Chisqaured for 850 micron 
+#Reduced RedChiSqaured for 850 micron 
 radial_limit_obs_850 = x_850 < 100
 radial_limit_Mod_850 = x_ContEm_Only_850 < 100
 
 #Model Outer Shell (M2010) + Cont Emission - Shell size from Maercker+2010
-OuterShell_M2010_850_ChiSq = np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_OuterShell_M2010_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 )
-print("outer_M2010_ChiSq_850,", OuterShell_M2010_850_ChiSq) 
+OuterShell_M2010_850_RedChiSq = ( ( np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_OuterShell_M2010_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 ) )
+                                                                                                                            / ( np.shape(stellar_850[radial_limit_obs_850])[0] ) )
+print("outer_M2010_RedChiSq_850,", OuterShell_M2010_850_RedChiSq) 
 
 #Model Outer Shell (K2010) + Cont Emission - Shell size from Kerschbaum+2010
-OuterShell_K2010_850_ChiSq = np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_OuterShell_K2010_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 )
-print("outer_K2010_ChiSq_850,", OuterShell_K2010_850_ChiSq) 
+OuterShell_K2010_850_RedChiSq = ( ( np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_OuterShell_K2010_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 )) 
+                                                                                                                        / ( np.shape(stellar_850[radial_limit_obs_850])[0] ) )
+print("outer_K2010_RedChiSq_850,", OuterShell_K2010_850_RedChiSq) 
 
 #Model Inner Shell + Cont Emission
-InnerShell_850_ChiSq = np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_InnerShell_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 )
-print("Inner_ChiSq_850,", InnerShell_850_ChiSq) 
+InnerShell_850_RedChiSq = ( (np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_InnerShell_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 ))
+                                                                                                                        / ( np.shape(stellar_850[radial_limit_obs_850])[0] ) )
+print("Inner_RedChiSq_850,", InnerShell_850_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Evenly spread between four shells
-FourShells_Even_850_ChiSq = np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_FourShells_Even_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 )
-print("FourShell_Even_ChiSq_850,", FourShells_Even_850_ChiSq) 
+FourShells_Even_850_RedChiSq = ( (np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_FourShells_Even_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 ))
+                                                                                                            / ( np.shape(stellar_850[radial_limit_obs_850])[0] ) )
+print("FourShell_Even_RedChiSq_850,", FourShells_Even_850_RedChiSq) 
 
 #Model Four Shells + Cont Emission - Dust Mass Unevenly spread between four shells
-FourShells_Uneven_850_ChiSq = np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_FourShells_Uneven_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 )
-print("FourShell_Uneven_ChiSq_850,", FourShells_Uneven_850_ChiSq) 
+FourShells_Uneven_850_RedChiSq = ( (np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_FourShells_Uneven_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 ))
+                                                                                                                                        / ( np.shape(stellar_850[radial_limit_obs_850])[0] ) )
+print("FourShell_Uneven_RedChiSq_850,", FourShells_Uneven_850_RedChiSq) 
 
 #Model No Shells - Only Cont emission
-ContEm_Only_850_ChiSq = np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_ContEm_Only_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 )
-print("ContEm_Only_ChiSq_850,", ContEm_Only_850_ChiSq ) 
+ContEm_Only_850_RedChiSq = ( (np.sum ( ( (stellar_850[radial_limit_obs_850] - stellar_ContEm_Only_850[radial_limit_Mod_850]) / stellar_unc_850[radial_limit_obs_850]) **2 ))
+                                                                                                                                    / ( np.shape(stellar_850[radial_limit_obs_850])[0] ) )
+print("ContEm_Only_RedChiSq_850,", ContEm_Only_850_RedChiSq ) 
 
 
 
