@@ -8,6 +8,7 @@ import matplotlib.gridspec as gridspec
 import matplotlib.ticker as mtick
 import warnings
 
+
 """
 ################################################################################################################################
                     ################## Plotting Radial Profiles ########################
@@ -18,8 +19,8 @@ import warnings
 - Plotting results derived from the script described above. 
 
 ###### Input files required ####################
-1) .csv table files containing source radial profile, psf profile and residual profile data for each wavelength. eg:For CIT6 - cit6_UnInterpolated_70.csv, cit6_UnInterpolated_160.csv, cit6_UnInterpolated_450.csv, cit6_UnInterpolated_850.csv.
-2) .csv table containing source distances in order to convert from projected to physical radius. - Source_Distances.csv
+1) .csv table files containing source radial profile, psf profile and residual profile data for each wavelength. 
+
 
 
 ############ Output ##############
@@ -37,9 +38,8 @@ font = {'family' : 'normal',
         'size'   : 18,
 	'weight' : 'medium'}
 
-#Heavily Edited for U Ant!! Don't use for anything else!!!!!!!!!!
-
 plt.rc('font', **font)
+
 
 star = 'uant'
 distance = 268.097  #Units = pc (Mc.Donald et al., 2017 from Hippacos distances from van Loon 2007??)
@@ -106,7 +106,7 @@ res_unc_850 = Stellar_Data_850['Residual_Unc(mJy/arcsec^2)']
 #################### Plotting ##################################################################
 
 
-fig = plt.figure(figsize=(16, 13)) #(width,height)
+fig = plt.figure(figsize=(17, 14)) #(width,height)
 gs = gridspec.GridSpec(4, 2) #(no.of.row, no.of.cols, height.ratio.of.rows)
 #gs = gridspec.GridSpec(2, 2)
 gs.update(hspace=0)
@@ -190,7 +190,7 @@ ax5.errorbar(x_450[radial_limit_450], psf_450[radial_limit_450], fmt='-', marker
 nbins = len(ax5.get_yticklabels())
 ax5.yaxis.set_major_locator(MaxNLocator(nbins=nbins, prune='both'))
 plt.setp(ax5.get_xticklabels(), visible=False)
-ax5.set_ylim([10**(np.log10(max(stellar_450[radial_limit_450])) - 5), 10**(np.log10(max(stellar_450[radial_limit_450])))])
+ax5.set_ylim([10**(np.log10(max(stellar_450[radial_limit_450])) - 7), 10**(np.log10(max(stellar_450[radial_limit_450])))])
 ax5.set_yscale('log') #setting y axis to log scale
 ax5.legend(fontsize=11, loc=1)
 ax5.set_xlim(xmin=0) #starting x axis from zero
@@ -217,7 +217,7 @@ radial_limit_850 = x_850 < 100
 ax7.errorbar(x_850[radial_limit_850], stellar_850[radial_limit_850], yerr=stellar_unc_850[radial_limit_850], fmt='o', color='midnightblue', markersize=3, capsize=2, label='850$\\mu m$ Stellar Profile') 
 ax7.errorbar(x_850[radial_limit_850], psf_850[radial_limit_850], fmt='-', markersize=0.5, mew=5, color='grey', linewidth=2, label='850$\\mu m$ PSF', alpha=0.6) 
 nbins = len(ax7.get_yticklabels())
-ax7.yaxis.set_major_locator(MaxNLocator(nbins=nbins, prune='upper'))
+ax7.yaxis.set_major_locator(MaxNLocator(nbins=nbins, prune='both'))
 ax7.xaxis.set_major_locator(MaxNLocator(nbins=nbins, prune='both')) #removing max val on x axis to prevent merging with res axis labels
 ax7.set_ylim([10**(np.log10(max(stellar_850[radial_limit_850])) - 5), 10**(np.log10(max(stellar_850[radial_limit_850])))])
 ax7.set_yscale('log') #setting y axis to log scale
@@ -229,7 +229,7 @@ ax7.set_xlim(xmin=0) #starting x axis from zero
 ax8 = fig.add_subplot(gs[3,1], sharex=ax1) 
 radial_limit_850[0:2]=False #We make the 0th and 1st point a false index since we don't want to plot the 1st two points in the res profile
 ax8.errorbar(x_850[radial_limit_850], res_850[radial_limit_850], yerr=res_unc_850[radial_limit_850], fmt='^', color='orangered', mec='orangered', markersize=3, capsize=2, label='850$\\mu m$ Residual')
-ax8.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.2f'))
+ax8.yaxis.set_major_formatter(mtick.FormatStrFormatter('%.3f'))
 ax8.yaxis.tick_right()
 ax8.yaxis.set_label_position("right")
 nbins = len(ax8.get_xticklabels())
@@ -263,7 +263,7 @@ ax10.set_xlim(xmin=0) #starting x axis from zero
 
 save_file = star + '_RadialProfile.png'
 plt.savefig(save_file, bbox_inches='tight')
-#plt.show()
+plt.show()
 
 
 

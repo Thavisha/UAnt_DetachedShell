@@ -1,0 +1,2 @@
+source,distance,Terminal_Velocity_cm/s,PACS70_threeSigma_arcsec,PACS160_threeSigma_arcsec,SCUBA450_threeSigma_arcsec,SCUBA850_threeSigma_arcsec,PACS70_threeSigma_pc_UNC,PACS160_threeSigma_pc_UNC,SCUBA450_threeSigma_pc_UNC,SCUBA850_threeSigma_pc_UNC,PACS70_threeSigma_yrs_UNC,PACS160_threeSigma_yrs_UNC,SCUBA450_threeSigma_yrs_UNC,SCUBA850_threeSigma_yrs_UNC,
+uant,39,2050000,51.2,54.4,0,56,0.009680765952,0.010285813823999998,0.0,0.010588337759999998,462.00321888780996,490.87842006829806,0.0,505.31602065854213

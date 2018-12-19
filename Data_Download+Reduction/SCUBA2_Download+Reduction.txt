@@ -27,13 +27,12 @@ Input commnads for terminal once Starlink is loaded:
 4) i) REDUCE_SCAN_ISOLATED_SOURCE pipeline
 	oracdr -loop file -files “filenames.lis” -verbose -recpars “myparams.ini” REDUCE_SCAN_ISOLATED_SOURCE 
 
-	FOR M15BI047 and M17AI65 REDUCTIONS 
-	In the dimmconfig_bright_compact.lis file in Starlink change “ast.zero_circle”  and “ flt.zero_circle” 	to  = (0.025000) to make the annulus size 1.5’(=0.025000 degrees) instead of default 1’ (example file provided in repository: dimmconfig_bright_compact_EDITED.lis). 
+	FOR U Ant REDUCTIONS 
+	In the dimmconfig_bright_compact.lis file in Starlink change 
 
-	OR 
+        i) “ast.zero_circle”  and “ flt.zero_circle” 	to  => (0.025000) to make the annulus size 1.5’(=0.025000 degrees) instead of default 1’ (example file provided in repository: dimmconfig_bright_compact_EDITED.lis). 
+        ii) For 850micron only - for CO subtraction => fakemap=ga20170103_58_1_fakemap_aligned.sdf
 
-    ii) REDUCE_SCAN pipeline
-	  oracdr -loop file -files “filenames.lis” -verbose -recpars “myparams.ini” REDUCE_SCAN
 
 
 - filenames.lis is the file with the list of sdf files to be reduced created in step 3.

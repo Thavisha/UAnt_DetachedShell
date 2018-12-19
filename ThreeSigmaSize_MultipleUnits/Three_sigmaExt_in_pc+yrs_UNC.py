@@ -4,7 +4,6 @@ from astropy.table import Table
 from matplotlib.ticker import AutoMinorLocator
 from matplotlib.ticker import MaxNLocator
 import matplotlib.gridspec as gridspec
-import pylatex
 import matplotlib.ticker as mtick
 
 """
@@ -12,11 +11,12 @@ import matplotlib.ticker as mtick
 #To Calculate the unc on PC and yr values. Using Distance_Unc this time instead of Dist 
 
 
+
 ###################################################################################################################################
-    ########### Three Sigma Radii in Multiple Units - UNC CALC. ################################
+    ########### Three Sigma Radii in Multiple Units ################################
 ###################################################################################################################################
 
-- Convert the UNC for Three sigma extents for all four wavelengths measured from the Residual profiles into physical size (pc) and age of CSE extenet (yr)
+- Convert the Three sigma extents for all four wavelengths measured from the Residual profiles into physical size (pc) and age of CSE extenet (yr)
 
 
 ###### Input files required ####################
@@ -25,9 +25,14 @@ import matplotlib.ticker as mtick
 
 ##### Output ############
 
-.csv table containing the input source details and the output in multiple units for all three wavelengths.
+.csv table containing the input source details and the output in multiple units for all three wavelengths. 
+
+
+*** The "Three_sigmaExt_in_pc+yrs_UNC.py" code is the same as above expcept converting the radii unc into the multiple units instead of the radii. ***
+
 
 """
+
 
 
 

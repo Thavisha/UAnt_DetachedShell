@@ -1,2 +1,2 @@
-Source,Center_X,Center_Y,Rstar,Rin,Rout,
-uant,268,243,0,15,20,Ignore Result. No Ext. Numbers added purely so code can work without breaking due to NAN
+Source,Center_X,Center_Y,Rstar,Rin,Rout,Calcuated to 850 radius to get uncertiantiy
+uant,268,243,28,35,70,"Rstar = Beam size at 450 micron = 7.9"" with 1pix = 2"" so = 3.95pix"

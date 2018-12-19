@@ -81,29 +81,7 @@ if __name__=="__main__":
 
 	
 
-	#Plotting density and mass loss model together for stellar source
 
-	star_density_table = Table.read('cit6_density_radial_output.csv', format='ascii.csv')
-	star_density = star_density_table['Density']
-	star_density_plus_unc =  star_density_table['Plus_Unc']
-	star_density_minus_unc =  star_density_table['Minus_Unc']
-	
-	#print np.array(surface_density)*surface_density[2]/10**star_density[2], star_density.data[2]
-
-	surface_density_scaled = ((10.**(star_density[2]))/surface_density[3])*np.array(surface_density) #Scaling uniform mass loss model to match a point on the stellar density profile. In this case we are matching(scalling to) the third(2) radial points. #Stellar density converted from log to linear for scaling
-
-	fig = plt.figure(figsize=(8, 9)) #(width,height)
-	gs = gridspec.GridSpec(1, 1) #Note capital G and S in .GridSpec
-		
-	ax1 = fig.add_subplot(111)#gs[0]) 
-	ax1.errorbar(x_interp[1:-1], star_density, yerr=[star_density_minus_unc, star_density_plus_unc], fmt='--^', color='indigo')
-	ax1.plot(x_interp[:-1], np.log10(surface_density_scaled), '--', color='red') #Plotting surface density model in log form
-	ax1.set_ylim([-10, -1])
-	ax1.set_ylabel('log($\\Sigma$ (g cm$^{-2}$))')
-	ax1.set_xlabel('Radius (")')
-
-	#plt.savefig("CIT6_Density+UniformMassLossModel_test1.png")
-	#plt.show()
 
 	
 

@@ -19,12 +19,15 @@ from scipy.stats import norm
 from sklearn.neighbors import KernelDensity
 import timeit
 
+
+
 """
+#********** U Ant ONLY = T limit set to 20K<T<300K. Inner temperature changed to 1800 K from 1300 K. Long Run
+
 ################################################################################################################################
                     ################## SED fitting ########################
 #################################################################################################################################
 
-********** U Ant ONLY = Inner temperature changed to 1800 K from 1300 K. Long Run ***********
 
 - Script to fit a modified blackbody profile to the 4 point SED generated using the residual radial profiles for the chosen source using MCMC. fitting method described in detail in Appendix 1 of the paper.  
 
@@ -40,8 +43,8 @@ import timeit
 
 1) .csv file containing Temperature, dust mass column density and beta radial profile for the chosen source which can later be used to plot these profiles. 
 
-"""
 
+"""
 
 
 global kappa_eff
@@ -163,9 +166,9 @@ def prior(theta): #Proiors - our data set. All in log values
 	temperature_sigma = 40 #uncertanity on temeprature #uncertainty in Kelvin. eg - 40 = +/-40 kelvin NOT 40%!
 	
 	#data for Beta from Global KDE 
-	log_dense = kde.score_samples(beta)
+	log_dense = kde.score_samples(np.array(beta).reshape(1,-1))
 		
-	if 20 < temperature < 300 and -10 < density < 10 and 0 < beta:
+	if 20 < temperature < 300 and -10 < density < 10 and 1 < beta:
 		return norm.logpdf(temperature, temperature_mean, temperature_sigma) + log_dense
 		
 	return -np.inf 

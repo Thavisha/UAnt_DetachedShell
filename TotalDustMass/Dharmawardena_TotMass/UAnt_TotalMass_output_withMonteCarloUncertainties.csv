@@ -1,0 +1,2 @@
+source,850_three_sigma(arcsec),850_three_sigma(cm),850_three_sigma(pc),DeBeck_etal_2010_Terminal_Velocity_fromCOdata(cm/s),3sigma_radius_850_Time(years)(Time=Dist/Vel)unit_sToYr=*3.171e-8,Final_Intergrated_Dust_Mass_fromDensityProfile(Msun),Final_Uncetainty_on_Dust_Mass_fromMonteCarlo(Msun),Plus_Uncetainty_on_Dust_Mass_fromMonteCarlo(Msun),Minus_Uncetainty_on_Dust_Mass_fromMonteCarlo(Msun)
+uant,56,2.2460094271999997e+17,0.07278822431481215,2050000,3474.193118854243,1.9454668409214242e-05,2.935918768276504e-06,3.1647000437877786e-06,2.70713749276523e-06

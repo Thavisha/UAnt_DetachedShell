@@ -1,2 +1,2 @@
-Source,Distance(pc),Distance_Unc(pc),DeBeck_etal_2010_Terminal_Velocity_fromCOdata(cm/s),PACS70_threeSigma_arcsec,PACS160_threeSigma_arcsec,SCUBA450_threeSigma_arcsec,SCUBA850_threeSigma_arcsec
-uant,268,39,2050000,51.2,54.4,0,52
+"Source","Distance(pc)","Distance_Unc(pc)","DeBeck_etal_2010_Terminal_Velocity_fromCOdata(cm/s)","PACS70_threeSigma_arcsec","PACS160_threeSigma_arcsec","SCUBA450_threeSigma_arcsec","SCUBA850_threeSigma_arcsec"
+"uant",268,39,2050000,51.2,54.4,0,56
