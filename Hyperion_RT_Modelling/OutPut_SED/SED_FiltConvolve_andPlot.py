@@ -11,7 +11,7 @@ Convolve RT modelled SED with the observed SED filter profiles and produce files
 
 
 Source_Distance = 268 * pc
-OutPutFiles = ['Model_OuterShell_ContEm_M2010.rtout', 'Model_ContEm_Only.rtout', 'Model_InnerShell_ContEm.rtout', 'Model_FourShells+ContEm_EvenMass.rtout', 'Model_FourShells_ContEm_UnevenMass.rtout', 'Model_OuterShell_ContEm_K2010.rtout'] #RT output files
+OutPutFiles = ["Model_FourShells_EvenMass.rtout", "Model_FourShells_UnEvenMass.rtout", "Model_InnerShell_Only.rtout", "Model_OuterShell_Only_K2010.rtout", "Model_OuterShell_Only_M2010.rtout", "Model_ShellThree_Only.rtout", "Model_ShellTwo_Only.rtout"] #RT output files
 
 #Getting Instrument Filters for Filter Convolution of the SED
 Filter_Library = pyphot.get_library(fname="Ampere_FiterProfile_Library.hdf5")

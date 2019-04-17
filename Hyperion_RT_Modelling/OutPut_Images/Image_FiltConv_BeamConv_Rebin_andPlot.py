@@ -22,7 +22,7 @@ Step 2:  Image_BeamConvolve function - Convolving the fileter convolved images w
 """
 
 Source_Distance = 268 * pc #Units = pc
-OutPutFiles = ['Model_OuterShell_ContEm_M2010.rtout', 'Model_ContEm_Only.rtout', 'Model_InnerShell_ContEm.rtout', 'Model_FourShells+ContEm_EvenMass.rtout', 'Model_FourShells_ContEm_UnevenMass.rtout', 'Model_OuterShell_ContEm_K2010.rtout'] #RT output files. #RT Modelling Output -
+OutPutFiles = ["Model_FourShells_EvenMass.rtout", "Model_FourShells_UnEvenMass.rtout", "Model_InnerShell_Only.rtout", "Model_OuterShell_Only_K2010.rtout", "Model_OuterShell_Only_M2010.rtout", "Model_ShellThree_Only.rtout", "Model_ShellTwo_Only.rtout"] #RT output files
 Filter_Library = pyphot.get_library(fname="Ampere_FiterProfile_Library.hdf5") #Getting Instrument Filters for Filter Convolution of the SED
 
 #Filter names of the image wavelengths as given in the Ampere Filter porifles library. 
