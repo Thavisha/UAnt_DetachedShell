@@ -24,7 +24,7 @@ from astropy.constants import c #c=speed of light
 - Total gas mass derived using CO gas mass loss rates from DeBeck et al., 2010 and the age of CSE at the radial point. 
 - All values derived up to the 3 sigma extension point of 850micron.  
 
-- Monter Carlo Uncertainties Added to derive the Uncertainty on the total mass
+- Monte Carlo Uncertainties Added to derive the Uncertainty on the total mass
 
 ###### Input files required ####################
 
@@ -74,8 +74,6 @@ def total_mass_from_density_profile(star, three_sigma_cm, distance, nskip=3): #n
 		
 		Integrated_Density = simps((2*np.pi*x_cm[three_sigma_cm_limit]*(10**density_profile_resampled[three_sigma_cm_limit])), x_cm[three_sigma_cm_limit]) #Units = g
 		Integrated_Density = Integrated_Density /  1.9884754e33 #Convert to Solar Masses
-		#print('Integrated_Density =', Integrated_Density) 
-		#print (cumtrapz((2*np.pi*x_cm[three_sigma_cm_limit]*(10**density_profile[three_sigma_cm_limit])), x_cm[three_sigma_cm_limit])  /  1.9884754e33 )
 		Integrated_Density_list.append(Integrated_Density)
 
 	
@@ -101,7 +99,6 @@ def total_mass_from_density_profile(star, three_sigma_cm, distance, nskip=3): #n
 
 if __name__=="__main__":
 
-	#Heavily Edited for U Ant!! Don't use for anything else!!!!!!!!!!
 
 	wavelength = '850' #Get masses for the 850 3 sigma cause you need at least two radial points to get an accurate density. so 70 extension is not enough. at 850 there's both 70 and 850 detections
 	wavelength_val = 850
@@ -131,14 +128,6 @@ if __name__=="__main__":
 		Final_Density, Final_Unc, Final_Density_Plus_Unc, Final_Density_Minus_Unc = total_mass_from_density_profile(star, three_sigma_cm, distance, nskip=1)
 
 		three_sigma_radius_inTimeUnits = (three_sigma_cm/DeBeck_Terminal_Velocity)*3.171E-8 #3sigma_radius_850_Time (years) (Time=Dist/Vel) unit_s to Yr = *3.171e-8. Same as doing (seventy_3sigma_cm / velocity) / 3.154e+7 #/3.154e+7 to convert from s to years
-
-		#DeBeck_total_CO_MassLoss_in_3sigma_time = DeBeck_MassLoss_Rate * three_sigma_radius_inTimeUnits
-
-		#Dust_Mass_fromDeBeck = DeBeck_total_CO_MassLoss_in_3sigma_time * 0.005 #Accepted dust:gas ratio = 1/200 = 0.005
-
-		#Dust_Mass_Ratio = Integrated_Density / Dust_Mass_fromDeBeck 
-
-		#Dust_to_Gas_Ratio = Integrated_Density / DeBeck_total_CO_MassLoss_in_3sigma_time
 
 
 		

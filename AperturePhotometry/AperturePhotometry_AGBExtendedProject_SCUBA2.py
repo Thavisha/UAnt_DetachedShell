@@ -131,8 +131,6 @@ def aperture_photometry_data(star, input_filename, r_stellar, r_inner, r_outer, 
 
 if __name__=="__main__":
 
-	#Heavily Edited for U Ant!! Don't use for anything else!!!!!!!!!!
-
 	wavelength = '450'
 	sq_pix_size = 4 #450mic=4 | 850mic=16 cause unit=mJy/arcsec^2
 	source_list_filename = 'Source_List_' + wavelength + '.csv'

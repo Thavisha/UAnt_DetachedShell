@@ -28,9 +28,6 @@ star = Source['Source']
 x_center = Source['Center_X'] #Units in pixels 
 y_center = Source['Center_Y']  #Units in pixels 
 three_sigmaRadius = Source['ThreeSigma_Radius(arcsec)'] #Units =arcsec
-Shell_1 = Source['Shell1_arcsec'] #Units =arcsec
-Shell_2 = Source['Shell2_arcsec'] #Units =arcsec
-Shell_3 = Source['Shell3_arcsec'] #Units =arcsec
 
 
 beam_fwhm_dict = {'850': 13/3600., '450': 7.9/3600.}
@@ -76,9 +73,6 @@ fig.colorbar.set_axis_label_rotation(270)
 #Plotting beam on image
 beam_radius = beam_fwhm/2 #rad = FWHM/2 (diam=fwhm) #units=degrees (radius 13"=0.00361degrees). #For Radius divide by 2!!!!!!!!!!!!!! FWHM=Daimeter!
 three_sigmaRadius_degrees = three_sigmaRadius / 3600. #Converting from arcseconds to degrees.  
-shell1 = Shell_1 / 3600.
-shell2 = Shell_2 / 3600.
-shell3 = Shell_3 / 3600.
 
 #Plotting beam as a circle at the edge of the image
 fig.show_circles(x_corner, y_corner, beam_radius, edgecolor='none', facecolor='white', dashes='--', linewidth=2) #Prim.Beam (xcenter, ycenter, radius) 
@@ -86,10 +80,6 @@ fig.show_circles(x_corner, y_corner, beam_radius, edgecolor='none', facecolor='w
 #Plotting 3sigma Radius as a circle
 fig.show_circles(x_world, y_world, three_sigmaRadius_degrees, edgecolor='white', dashes='--', linewidth=2) #3sig.Radius (xcenter, ycenter, radius) 
 
-#Optical Shells
-#fig.show_circles(x_world, y_world, shell1, edgecolor='white', dashes='--', linewidth=2) #Shell 1 24" (xcenter, ycenter, radius)
-#fig.show_circles(x_world, y_world, shell2, edgecolor='white', dashes=':', linewidth=2) #Shell 2 37" (xcenter, ycenter, radius) 
-#fig.show_circles(x_world, y_world, shell3, edgecolor='white', dashes=':', linewidth=2) #Shell 2 43" (xcenter, ycenter, radius) 
 
 
 fig.save('UAnt_450_ContourPlot.png', dpi=300)

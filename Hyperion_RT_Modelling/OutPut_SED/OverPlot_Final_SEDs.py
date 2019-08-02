@@ -17,13 +17,10 @@ font = {'family' : 'normal',
         'size'   : 18,
 	'weight' : 'medium'}
 
-#Heavily Edited for U Ant!! Don't use for anything else!!!!!!!!!!
 
 plt.rc('font', **font)
 
 
-#star = 'uant'
-#distance = 268.097  #Units = pc (Mc.Donald et al., 2017 from Hippacos distances from van Loon 2007??)
 
 c_cm = 29979245800.0 #Speed of light in cm/s
 

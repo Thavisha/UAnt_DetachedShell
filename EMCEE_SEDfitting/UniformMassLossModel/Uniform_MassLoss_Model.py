@@ -11,7 +11,7 @@ from astropy.table import Table
 
 - Generating a radially dependent dust mass column density profile assuming uniform mass loss. 
 
-- We assume dust mass column density \prop to 1/r^2 relationship and extending it in the z and impact parameter directions. 
+- We assume dust mass column density proportional to 1/r^2 relationship and extending it in the z and impact parameter directions. 
 
 
 ###### Input files required ####################

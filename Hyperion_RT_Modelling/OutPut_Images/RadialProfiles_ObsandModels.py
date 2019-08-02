@@ -454,11 +454,6 @@ ax5.xaxis.set_major_locator(MaxNLocator(nbins=nbins, prune='both')) #removing ma
 ax5.set_xlim(xmin=0) #starting x axis from zero
 
 
-
-
-#ax1.errorbar(x_70[radial_limit_obs_70], norm_stellar_70, yerr=norm_stellar_unc_70, fmt='o', color='black', markersize=8, capsize=7, label='70$\\mu m$ Observed Profile')
-
-
 save_file = star + 'ObservedandModel_RadialProfiles.png'
 plt.savefig(save_file, bbox_inches='tight')
 plt.show()

@@ -11,7 +11,7 @@ import matplotlib.ticker as mtick
     ########### Three Sigma Radii in Multiple Units ################################
 ###################################################################################################################################
 
-- Convert the Three sigma extents for all four wavelengths measured from the Residual profiles into physical size (pc) and age of CSE extenet (yr)
+- Convert the Three sigma extents for all four wavelengths measured from the Residual profiles into physical size (pc) and age of CSE extent (yr)
 
 
 ###### Input files required ####################
@@ -23,7 +23,7 @@ import matplotlib.ticker as mtick
 .csv table containing the input source details and the output in multiple units for all three wavelengths. 
 
 
-*** The "Three_sigmaExt_in_pc+yrs_UNC.py" code is the same as above expcept converting the radii unc into the multiple units instead of the radii. ***
+*** The "Three_sigmaExt_in_pc+yrs_UNC.py" code is the same as above except converting the radii unc into the multiple units instead of the radii. ***
 
 
 
@@ -72,16 +72,6 @@ for Source in Source_Data:
 	f.write(outstring)	
 	f.close()
 
-
-	#seventy_arcsec_median = np.median(seventy_3sigma_arcsec)
-	#seventy_arcsec_25thpercentile = np.percentile(seventy_3sigma_arcsec, 25)
-	#seventy_arcsec_75thpercentile = np.percentile(seventy_3sigma_arcsec, 75)
-	#seventy_iqrange = seventy_arcsec_75thpercentile - seventy_arcsec_25thpercentile
-
-	#onesixty_arcsec_median = np.median(seventy_3sigma_arcsec)
-	#onesixty_arcsec_25thpercentile = np.percentile(seventy_3sigma_arcsec, 25)
-	#onesixty_arcsec_75thpercentile = np.percentile(seventy_3sigma_arcsec, 75)
-	#onesixty_iqrange = seventy_arcsec_75thpercentile - seventy_arcsec_25thpercentile
 
 
 

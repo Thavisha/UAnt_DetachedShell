@@ -30,17 +30,8 @@ def InnerShell_Only(dust_file_name, fnu, nu, stellar_luminoisity, stellar_temper
 	envelope_shell.power = -2                        # Radial power #Constant Outflow envelope
 	envelope_shell.dust =  dust_file_name #Using a standard Hyperion Dust model. Needs to be modified a lot for U Ant
 
-	#WILL THIS WORK??!! JUST NEED THE NUMBER AS THE INPUT TO GET IMAGE LIMIT!!
-	envelope_CSE_Max = (MaxCSE_outer_rad * uant_distance) * au    # Outer radius- estimating the total emission will be ~ this radius - pre&post thermal pulse. Units = cm
 
-	#Power-law spherically symmetric envelope - Constant outflow envelope on top of Shell envelope to account for the ML before&after the thermal pulse. 
-	#envelope_current = model.add_power_law_envelope()
-	#envelope_current.rmin = continuous_envelope_inner_rad #Units = cm
-	#envelope_current.rmax = (continuous_envelope_outer_rad * uant_distance) * au    # Outer radius- estimating the total emission will be ~ this radius - pre&post thermal pulse. Units = cm
-	#envelope_current.r_0 = envelope_current.rmin
-	#envelope_current.power = -2  # Radial power #Constant Outflow envelope
-	#envelope_current.mass = ( ( (envelope_CSE.rmax - envelope_current.rmin) / expansion_velocity ) * present_day_mlr ) * msun #Derive total constant outflow mass from present day mlr and expansion vel
-	#envelope_current.dust = dust_file_name  
+	envelope_CSE_Max = (MaxCSE_outer_rad * uant_distance) * au    # Outer radius- estimating the total emission will be ~ this radius - pre&post thermal pulse. Units = cm
 
 
 	# Set up grid to run the model on

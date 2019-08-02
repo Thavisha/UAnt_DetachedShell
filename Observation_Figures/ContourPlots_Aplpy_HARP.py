@@ -58,9 +58,6 @@ x_corner, y_corner = fig.pixel2world(x_corner_pix, y_corner_pix)
 
 #Adding Colourbar
 fig.add_colorbar()
-#fig.colorbar.set_width(0.2)
-#fig.colorbar.set_pad(0.5)
-#fig.colorbar.set_location('right')
 fig.colorbar.set_axis_label_text('K km s$^{-1}$')
 fig.colorbar.set_axis_label_pad(25)
 fig.colorbar.set_axis_label_rotation(270)

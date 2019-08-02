@@ -131,7 +131,6 @@ def aperture_photometry_data(star, input_filename, r_stellar, r_inner, r_outer, 
 
 if __name__=="__main__":
 
-	#Heavily Edited for U Ant!! Don't use for anything else!!!!!!!!!!
 
 	wavelength = '160'
 	sq_pix_size = 1 #70mic=1 & 160mic=1 cause PACS data are given in Jy/pixel | 450mic=4 | 850mic=16 cause unit=mJy/arcsec^2
